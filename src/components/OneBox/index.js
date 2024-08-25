@@ -1,13 +1,13 @@
-import { FiHome } from "react-icons/fi";
-import { MdPersonSearch ,MdEmail,MdBarChart  } from "react-icons/md";
-import { IoIosSend } from "react-icons/io";
-import { TfiMenuAlt } from "react-icons/tfi";
-import { FaInbox } from "react-icons/fa";
-import { useState,useEffect, useContext } from 'react';
-import Navbar from '../Navbar';
+import { FiHome } from "react-icons/fi"
+import { MdPersonSearch ,MdEmail,MdBarChart  } from "react-icons/md"
+import { IoIosSend} from "react-icons/io"
+import { TfiMenuAlt } from "react-icons/tfi"
+import { FaInbox } from "react-icons/fa"
+import { useState,useEffect, useContext } from 'react'
+import Navbar from '../Navbar'
 import NavMenu from '../NavMenu'
-import PageContents from '../PageContents';
-import ThemeContext from "../../context/ThemeContext";
+import PageContents from '../PageContents'
+import ThemeContext from "../../context/ThemeContext"
 import './index.css'
 
 const navMenus=[
@@ -34,7 +34,7 @@ const OneBox = () => {
     setProfile(initials) 
     }
    },[])
- 
+
     useEffect(()=>{
         setNavMenu(navMenus)
     },[])
@@ -42,7 +42,7 @@ const OneBox = () => {
     const setMenu=(id)=>{
        setSelectedMenu(id)
     }
-
+   
   return (
     <div className="onebox-page-container">
         <nav className={`primary-nav ${isDark?'nav-dark-bg':'nav-light-bg'}`}>

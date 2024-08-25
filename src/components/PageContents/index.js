@@ -4,18 +4,20 @@ import { jwtDecode } from 'jwt-decode';
 import FirstColumn from '../FirstColumn';
 import SecondColumn from '../SecondColumn';
 import ThirdColumn from '../ThirdColumn';
+import ReplyModal from '../ReplyModal'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
 const PageContents =(props)=>{
     const location = useLocation();
-    const {isDark}=useContext(ThemeContext)
+    const {isDark,replyModal,setReplyModal}=useContext(ThemeContext)
     const {selectedMenu}=props
    
     const [mailingList,setMailingList]=useState([])
     const [mailThread,setMailThread]=useState([])
     const [threadIdList,setThreadIdList]=useState(null)
     const [clickedId,setClickedId]=useState(null)
+    const [deleteModal,setDeleteModal]=useState(false)
 
     const setThreadId=(id)=>{
       console.log(id)
@@ -46,7 +48,23 @@ const PageContents =(props)=>{
      let idList= mailList.map(each=>each.threadId)
      setThreadIdList(idList)
    }
-
+   useEffect(() => {
+    const listenKeyDown = (event) => {
+      if (event.key === 'r' || event.key === 'R') {
+        setReplyModal(true)
+      }else if(event.key==='d'|| event.key==='D'){
+        setDeleteModal(true)
+      }
+    };
+    window.addEventListener('keydown', listenKeyDown);
+    return () => {
+      window.removeEventListener('keydown', listenKeyDown);
+    };
+    //eslint-disable-next-line
+  }, []);
+   const closeReplyModal = () => {
+    setReplyModal(false);
+  };
    
  
    useEffect(()=>{
@@ -89,6 +107,7 @@ const PageContents =(props)=>{
   },[selectedMenu])
     
     return (
+      <>
     <div className={`page-contents-container  ${isDark?'bg-dark':'bg-light'}`}>
        {selectedMenu!=="Inbox"? (
          <div className='no-mail-container'>  
@@ -104,6 +123,13 @@ const PageContents =(props)=>{
          </div>)}
      
     </div>
+     <div className="reply-modal">
+     {replyModal&&<ReplyModal
+       mailDetails={mailThread}
+       closeReplyModal={closeReplyModal}
+      /> } 
+     </div>
+     </>
     )
 }
 export default PageContents

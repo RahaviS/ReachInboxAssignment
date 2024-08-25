@@ -1,15 +1,24 @@
 import { FaCircle } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa6"
 import { BsThreeDots } from "react-icons/bs";
+import { MdReply } from "react-icons/md";
+import { useContext } from "react";
+import ThemeContext from "../../context/ThemeContext";
 import { format } from 'date-fns'
 import './index.css'
 
 const SecondColumn=(props)=>{
   const {mailThread}=props
+
+  const {setReplyModal}=useContext(ThemeContext)
  
   const getFormattedDate=(dateString)=>{
     const formattedDate = format(new Date(dateString), 'd MMMM yyyy : h:mma')
     return formattedDate;
+  }
+
+  const openReplyModal=()=>{
+     setReplyModal(true)
   }
 
     return(
@@ -49,8 +58,8 @@ const SecondColumn=(props)=>{
                    </div>
                  </li>
                 ))}
-               
               </ul>
+              <button type="button" className="reply-btn" onClick={openReplyModal}><MdReply size={20}/><p>Reply</p></button>
             </div>
     )
 }

@@ -7,11 +7,17 @@ import './App.css'
 
 const App=()=> {
   const [isDark,setIsDark]=useState(true)
+  const [replyModal,setRlyModal]=useState(false)
+
+  const setReplyModal=(value)=>{
+    setRlyModal(value)
+  }
+
   const toggleTheme=()=>{
     setIsDark(!isDark)
   }
   return (
-    <ThemeContext.Provider value={{isDark,toggleTheme}}>
+    <ThemeContext.Provider value={{isDark,toggleTheme,replyModal,setReplyModal}}>
     <BrowserRouter>
        <Routes>
           <Route path="/" element = {<Login/>}/>
