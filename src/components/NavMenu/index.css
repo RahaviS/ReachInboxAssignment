@@ -1,0 +1,13 @@
+.nav-menu-item{
+    margin-bottom:15px;
+}
+.nav-btn{
+    background-color: transparent;
+    border:0;
+    outline:none;
+    cursor: pointer;
+}
+.active{
+   background-color:#343A40;
+   border-radius: 4px;
+}

@@ -3,16 +3,45 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width:100%;
+}
+.dark{
     background-color:#272a2f ;
     border-bottom: 1px solid  #343A40;
-    width:100%;
+    color:#FFFFFF;
+}
+.light{
+   color:black;
+   border-bottom:1px solid #343A40;
 }
 .top-nav-text{
     font-family: "Open Sans";
     font-size: 20px;
-    color:#FFFFFF;
+    margin-left:8px;
 }
 .top-left-section{
     display: flex;
     align-items: center;
+}
+.theme-section{
+    border:1px solid #343A40;
+    border-radius:15px;
+    padding:2px;
+    width:40px;
+    margin-right:10px;
+}
+.theme-btn{
+    background-color: transparent;
+    border:0;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    padding:3px;
+    align-items: center;
+}
+.light-bg{
+    background-color: #E9EAEC;
+}
+.name-text{
+    margin-right:10px;
 }
