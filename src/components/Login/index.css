@@ -1,0 +1,101 @@
+.bg-container{
+    width:100%;
+    height:100vh;
+    background-color: #121212;
+    text-align: center;
+}
+.nav-container{
+    background-color: #121212;
+    text-align: center;
+    border-bottom:1px solid #25262B;
+    padding:20px;
+}
+.logo-img{
+    width: 156.77px;
+    height: 24px;
+    gap: 0px;
+    opacity: 0px;
+}
+.login-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:90%;
+}
+.login-contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    background-color:#181a1d ;
+    border: 1px solid  #343A40;
+    width:300px;  
+    height:200px;
+    border-radius:12px;
+}
+.page-title{
+    font-family: "Open Sans";
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 31px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-top:0;
+    margin-top:0;
+
+}
+.nav-link{
+    text-decoration: none;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-sign-in-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border:1px solid #343A40;
+    width:90%;
+    height:40px;
+    border-radius:5px;
+    outline:none;
+    cursor:pointer;
+    font-family: 'Open Sans';
+    color:#CCCCCC;
+}
+.btn-contents{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-text{
+    font-size: 16px;
+    margin-left:10px;
+}
+.create-btn{
+    background: linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%);
+    border:none;
+    font-family: "Open Sans";
+    color:#CCCCCC;
+    width:160px;
+    height:40px;
+    outline:none;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top:30px;
+}
+.desc-text{
+    color: #909296;
+}
+.footer{
+    background-color: #181a1d ;
+    border-top:1px solid #343A40;
+    font-family: "Open Sans";
+    color:#5C5F66;
+    padding-bottom:5px;
+}

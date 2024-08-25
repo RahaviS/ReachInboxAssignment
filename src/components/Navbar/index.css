@@ -1,0 +1,18 @@
+.top-nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#272a2f ;
+    border-bottom: 1px solid  #343A40;
+    width:100%;
+}
+.top-nav-text{
+    font-family: "Open Sans";
+    font-size: 20px;
+    color:#FFFFFF;
+}
+.top-left-section{
+    display: flex;
+    align-items: center;
+}
