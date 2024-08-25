@@ -24,7 +24,7 @@
 }
 .nav-menus{
     list-style-type: none;
-    padding-left:0;
+    padding:0;
     display: flex;
     flex-direction: column;
     justify-content:center;
@@ -37,4 +37,11 @@
     flex-direction: column;
     align-items: center;
 }
-
+.profile{
+    margin-bottom:10px;
+    background-color: #2B9F1B;
+    color:#FAFAFA;
+    font-weight: 600;
+    border-radius: 60%;
+    padding:8px;
+}

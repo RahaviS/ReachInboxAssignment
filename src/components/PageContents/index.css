@@ -1,6 +1,6 @@
 .page-contents-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     width:100%;
@@ -33,4 +33,14 @@
 }
 .dark-text{
     color:#000000;
+}
+.inbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    padding-left:10px;
+    height: inherit;
+    border:1px solid #9E9E9E;
 }

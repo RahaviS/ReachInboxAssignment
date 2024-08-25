@@ -4,8 +4,6 @@ import { IoIosSend } from "react-icons/io";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { FaInbox } from "react-icons/fa";
 import { useState,useEffect, useContext } from 'react';
-import { jwtDecode } from 'jwt-decode';
-import { useLocation } from 'react-router-dom';
 import Navbar from '../Navbar';
 import NavMenu from '../NavMenu'
 import PageContents from '../PageContents';
@@ -25,40 +23,26 @@ const navMenus=[
 const OneBox = () => {
     const [navMenu,setNavMenu]=useState([])
     const [selectedMenu,setSelectedMenu]=useState(navMenus[0].id)
+    const [profile,setProfile]=useState('')
     const {isDark} = useContext(ThemeContext)
-    const location = useLocation();
 
-    const getMailingList=async (token)=>{
-        const getUrl = `https://hiring.reachinbox.xyz/api/v1/onebox/list`
-        const options = {
-            method:"GET",
-            headers:{
-                'Authorization': `Bearer ${token}`
-            }
-        }
-        const response= await fetch(getUrl,options);
-        const data = await response.json();
-        console.log(data);
+   useEffect(()=>{
+    const firstName = localStorage.getItem('first_name')
+    const LastName = localStorage.getItem('last_name');
+    if(firstName&&LastName){
+    const initials = firstName[0]+LastName[0]
+    setProfile(initials) 
     }
-
+   },[])
+ 
     useEffect(()=>{
         setNavMenu(navMenus)
-    },[])
-
-    useEffect(()=>{
-        const token = location.search.split("?token=").join("")
-        if(token){
-            const tokenResponse=jwtDecode(token)
-            console.log(tokenResponse)
-            getMailingList(token)
-        }
-        //eslint-disable-next-line
     },[])
 
     const setMenu=(id)=>{
        setSelectedMenu(id)
     }
-  
+
   return (
     <div className="onebox-page-container">
         <nav className={`primary-nav ${isDark?'nav-dark-bg':'nav-light-bg'}`}>
@@ -71,7 +55,7 @@ const OneBox = () => {
             ))
             }
          </ul>
-         <div className='profile'>AS</div>
+         <div className='profile'>{profile}</div>
         </nav>
         <div className="contents-container">
           <Navbar/>

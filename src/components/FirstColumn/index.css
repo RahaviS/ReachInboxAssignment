@@ -1,0 +1,123 @@
+.first-section{
+    width:20%;
+    height: 100%;
+    padding:15px;
+    border-right:1px solid #9E9E9E;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.all-inbox-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+.all-inbox-div{
+    display: flex;
+    align-items: center;
+}
+.all-inbox-text{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color:#4285F4;
+}
+.reset-btn{
+    display: flex;
+    align-items: center;
+    padding:6px;
+    border:0;
+    background-color: #25262B;
+    border-radius:2px;
+    margin-right:8px;
+    outline: none;
+    cursor: pointer;
+}
+.text{
+    color:#d1d0d0;
+}
+span{
+    color:#838181;
+    font-size: 15px;
+}
+.search-section{
+    background-color: #23272C;
+    outline:none;
+    cursor: pointer;
+    border:1px solid #9E9E9E;
+    border-radius: 3px;
+    width:80%;
+    color:#9E9E9E;
+    display: flex;
+    align-items: center;
+    padding-left:10px;
+}
+.search-input{
+    background-color:transparent;
+    outline: none;
+    border:0;
+}
+.inbox-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+.replies-count{
+    background-color: #414248;
+    color:#5C7CFA;
+    border-radius:50%;
+    font-size: 15px;
+    padding:5px;
+}
+.styling-line{
+    color:#d1d0d0;
+    width:100%;
+}
+.msg-glimpse-list{
+    list-style-type: none;
+    padding-left:0;
+}
+.msg-glimpse{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width:100%;
+}
+.mail-from{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.mail-from-name{
+    font-family: sans-serif;
+    font-size: 12px;
+    color:#fdf9f9;
+}
+.mail-text{
+    font-size: 13px;
+    color:#9E9E9E;
+}
+.mail-flags{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.flag-btn{
+    display: flex;
+    align-items: center;
+    padding:5px;
+    justify-content: space-around;
+    font-size: 12px;
+    border:1px solid #4f5158;
+    background-color: #2a2b2f;
+    border-radius:12px;
+}
+.int{
+    color:#57E0A6;
+}
