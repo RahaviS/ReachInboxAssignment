@@ -13,7 +13,8 @@ const Login = () => {
             <h1 className='page-title'>Create a new account</h1>
             {/* <Link to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:3000/onebox"
             className='nav-link'> */}
-            <Link to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://reachinbox-assignment-two.vercel.app/onebox"
+            
+            <Link to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://reachinbox-assignment-pqweop455-rahavi-sekars-projects.vercel.app/onebox"
             className='nav-link'>
             <button className='custom-sign-in-btn'>
               <div className='btn-contents'><FcGoogle size={20}/> <p className='btn-text'>Sign Up with Google</p></div>
