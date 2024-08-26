@@ -151,6 +151,7 @@ const PageContents =(props)=>{
     const token=localStorage.getItem('auth_token');
     if(token){
       sendReply(token,mailBody)
+      closeReplyModal()
     }
   }
 
@@ -178,7 +179,22 @@ const PageContents =(props)=>{
     deleteThread(token)
     }
   }
-    
+  const resetData=async (token)=>{
+    const resetUrl=`https://hiring.reachinbox.xyz/api/v1/onebox/reset`
+    const options={
+      method:'GET',
+      headers:{
+        'Authorization':`Bearer ${token}`
+      }
+    }
+    const response = await fetch(resetUrl,options)
+    const responseData = await response.json()
+    const {status,data}=responseData
+    if(status===200){
+      console.log(data);
+      getMailingList(token)
+    }
+  }
     return (
       <>
     <div className={`page-contents-container  ${isDark?'bg-dark':'bg-light'}`}>
@@ -190,7 +206,7 @@ const PageContents =(props)=>{
            <p className={`no-msg-desc ${!isDark&&'dark-text'}`}>When you have inbound E-mails you’ll see them here</p>
          </div>):
          (<div className='inbox-container'>
-            <FirstColumn mailingList={mailingList} setThreadId={setThreadId}/>
+            <FirstColumn mailingList={mailingList} setThreadId={setThreadId} resetData={resetData}/>
             <SecondColumn mailThread={mailThread}/>
             <ThirdColumn />
          </div>)}

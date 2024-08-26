@@ -7,7 +7,7 @@ import ThemeContext from '../../context/ThemeContext'
 import './index.css'
 
 const FirstColumn=(props)=>{
-  const {mailingList,setThreadId}=props
+  const {mailingList,setThreadId,resetData}=props
   const {isDark}=useContext(ThemeContext)
 
   const getDate=(dateString)=>{
@@ -15,21 +15,7 @@ const FirstColumn=(props)=>{
     const formattedDate= date.toLocaleDateString('en-us',{month:'short',day:'numeric'});
     return formattedDate;
   }
-  const resetData=async (token)=>{
-    const resetUrl=`https://hiring.reachinbox.xyz/api/v1/onebox/reset`
-    const options={
-      method:'GET',
-      headers:{
-        'Authorization':`Bearer ${token}`
-      }
-    }
-    const response = await fetch(resetUrl,options)
-    const responseData = await response.json()
-    const {status,data}=responseData
-    if(status===200){
-      console.log(data);
-    }
-  }
+ 
 
  const handleClick=(id)=>{
     setThreadId(id)
