@@ -1,12 +1,15 @@
 import { useState,useContext ,useEffect} from 'react'
 import {useLocation} from 'react-router-dom'
 import { jwtDecode } from 'jwt-decode';
+import Modal from 'react-modal'
 import FirstColumn from '../FirstColumn';
 import SecondColumn from '../SecondColumn';
 import ThirdColumn from '../ThirdColumn';
 import ReplyModal from '../ReplyModal'
 import ThemeContext from '../../context/ThemeContext'
 import './index.css'
+
+Modal.setAppElement('#root');
 
 const PageContents =(props)=>{
     const location = useLocation();
@@ -20,7 +23,6 @@ const PageContents =(props)=>{
     const [deleteModal,setDeleteModal]=useState(false)
 
     const setThreadId=(id)=>{
-      console.log(id)
       setClickedId(id)
     }
     const fetchMail=async (token)=>{
@@ -48,6 +50,7 @@ const PageContents =(props)=>{
      let idList= mailList.map(each=>each.threadId)
      setThreadIdList(idList)
    }
+   
    useEffect(() => {
     const listenKeyDown = (event) => {
       if (event.key === 'r' || event.key === 'R') {
@@ -62,10 +65,26 @@ const PageContents =(props)=>{
     };
     //eslint-disable-next-line
   }, []);
+
+  const closeDeleteModal=()=>{
+    setDeleteModal(false)
+  }
    const closeReplyModal = () => {
     setReplyModal(false);
   };
-   
+  const customStyles = {
+    content: {
+      background: 'linear-gradient(180deg, #141517 0%, #232528 100%)',
+      width:'380px',
+      height:'200px',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
  
    useEffect(()=>{
      const token=localStorage.getItem('auth_token');
@@ -80,7 +99,7 @@ const PageContents =(props)=>{
       const options = {
           method:"GET",
           headers:{
-              'Authorization': `Bearer ${token}`
+             'Authorization': `Bearer ${token}`
           }
       }
       const response= await fetch(getUrl,options);
@@ -97,14 +116,68 @@ const PageContents =(props)=>{
       if(token){
           const tokenResponse=jwtDecode(token)
           const {user}=tokenResponse;
-          localStorage.setItem('auth_token',token);
-          localStorage.setItem('first_name',user.firstName);
+          localStorage.setItem('auth_token',token)
+          localStorage.setItem('first_name',user.firstName)
           localStorage.setItem('last_name',user.lastName)
+          localStorage.setItem('email',user.email)
           //console.log(tokenResponse)
           getMailingList(token)
       }
       //eslint-disable-next-line
   },[selectedMenu])
+
+  const sendReply=async (token,mailBody)=>{
+      const sendUrl=`https://hiring.reachinbox.xyz/api/v1/onebox/reply/${clickedId}`
+      const options={
+        method:'POST',
+        headers:{
+          "Content-Type":"application/json",
+          'Authorization':`Bearer ${token}`
+        },
+        body:JSON.stringify(mailBody)
+      }
+      const response = await fetch(sendUrl,options)
+      const responseData = await response.json()
+      const {status,message}=responseData
+      if(status===404){
+        console.log(message)
+      }
+      else{
+        console.log(status, message)
+      }
+  }
+
+  const onClickSend=(mailBody)=>{
+    const token=localStorage.getItem('auth_token');
+    if(token){
+      sendReply(token,mailBody)
+    }
+  }
+
+  const deleteThread= async(token)=>{
+    const deleteUrl=`https://hiring.reachinbox.xyz/api/v1/onebox/messages/${clickedId}`
+    const options={
+      method:'DELETE',
+      headers:{
+         'Authorization': `Bearer ${token}`
+      }
+    }
+    const response = await fetch(deleteUrl,options)
+    const responseData= await response.json()
+    const {status,message}=responseData
+    if(status===200){
+      getMailingList(token)
+      closeDeleteModal()
+      console.log(message)
+    }
+  }
+
+  const onClickDelete=()=>{
+    const token=localStorage.getItem('auth_token');
+    if(token){
+    deleteThread(token)
+    }
+  }
     
     return (
       <>
@@ -123,12 +196,27 @@ const PageContents =(props)=>{
          </div>)}
      
     </div>
-     <div className="reply-modal">
-     {replyModal&&<ReplyModal
+    {replyModal&&<div className="reply-modal">
+     <ReplyModal
        mailDetails={mailThread}
        closeReplyModal={closeReplyModal}
-      /> } 
-     </div>
+       onClickSend={onClickSend}
+      /> 
+     </div>}
+     {deleteModal &&
+     <Modal isOpen={deleteModal}
+      style={customStyles}
+      onRequestClose={closeDeleteModal}>
+      <div className='delete-modal'>
+        <h1 className='dlt-modal-title'>Are you sure?</h1>
+        <p className='dlt-modal-text'>Your selected email will be deleted</p>
+        <div className='btn-section'>
+          <button type="button" className='cancel-btn' onClick={closeDeleteModal}>Cancel</button>
+          <button type="button" className='delete-btn' onClick={onClickDelete}>Delete</button>
+        </div>
+      </div>
+     </Modal>
+     }
      </>
     )
 }

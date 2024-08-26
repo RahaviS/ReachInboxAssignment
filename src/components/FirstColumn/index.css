@@ -35,24 +35,43 @@
     outline: none;
     cursor: pointer;
 }
-.text{
+.reset-btn-light{
+    background-color: #edeff7;
+}
+.text-dark{
     color:#d1d0d0;
 }
-span{
+.text-light{
+    color:#23272C;
+}
+.span-dark{
     color:#838181;
     font-size: 15px;
 }
+.span-light{
+    color:#101113;
+    font-size:15px;
+    font-weight:600;
+}
 .search-section{
-    background-color: #23272C;
+    align-self: flex-start;
     outline:none;
+    width:100%;
     cursor: pointer;
-    border:1px solid #9E9E9E;
     border-radius: 3px;
-    width:80%;
-    color:#9E9E9E;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    padding-left:10px;
+}
+.search-dark{
+    background-color: #23272C;
+    border:1px solid #9E9E9E;
+    color:#9E9E9E;
+}
+.search-light{
+    background-color: #f8f7f7;
+    border:1px solid #b0afaf;
+    color:#23272C
 }
 .search-input{
     background-color:transparent;
@@ -63,7 +82,7 @@ span{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:100%;
+    width:90%;
 }
 .replies-count{
     background-color: #414248;
@@ -72,6 +91,14 @@ span{
     font-size: 15px;
     padding:5px;
 }
+.replies-count-light{
+    background-color: #b2b3b7;
+}
+.newest{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
 .styling-line{
     color:#d1d0d0;
     width:100%;
@@ -79,6 +106,7 @@ span{
 .msg-glimpse-list{
     list-style-type: none;
     padding-left:0;
+    margin-top:0;
 }
 .msg-glimpse{
     display: flex;
@@ -86,6 +114,8 @@ span{
     justify-content: center;
     align-items: flex-start;
     width:100%;
+    cursor: pointer;
+    margin: 0; 
 }
 .mail-from{
     width:100%;
@@ -98,9 +128,17 @@ span{
     font-size: 12px;
     color:#fdf9f9;
 }
+.mail-from-name-light{
+    color:#202020;
+    font-size: 14px;
+    font-weight: 600;
+}
 .mail-text{
     font-size: 13px;
     color:#9E9E9E;
+}
+.mail-text-light{
+    color:#202020;
 }
 .mail-flags{
     width:100%;
@@ -118,6 +156,10 @@ span{
     background-color: #2a2b2f;
     border-radius:12px;
 }
+.flag-btn-light{
+    border:1px solid #bebebe;
+    background-color: #e6e6e6;
+}
 .int{
-    color:#57E0A6;
+    color:#23a66d;
 }

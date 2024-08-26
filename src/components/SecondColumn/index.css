@@ -1,7 +1,10 @@
 .second-section{
-    width:60%;
+    width:55%;
     height: 100%;
     border-right:1px solid #9E9E9E;
+}
+.light-section{
+    border-right:1px solid #222121;
 }
 .mail-header{
     border-bottom:1px solid  #F8FAFC;
@@ -9,6 +12,9 @@
     justify-content: space-between;
     align-items: center;
     width:100%;
+}
+.header-light{
+    border-bottom:1px solid  #57585a;
 }
 .name-details{
     font-size:15px;
@@ -19,6 +25,13 @@
     color:#d5d2d2;
     padding:0;
     margin-bottom:0;
+}
+.user-name-dark{
+    color:#d5d2d2;
+}
+.user-name-light{
+    color:#222121;
+    font-weight: 600;
 }
 .mail-id{
     font-family: sans-serif;
@@ -35,12 +48,18 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: #1F1F1F;
-    border:1px solid #343A40;
-    border-radius:5px;
+    border-radius:4px;
     padding:0 8px;
     height:35px;
     margin-right:15px;
+}
+.meeting-section-dark{
+    background-color: #1F1F1F;
+    border:1px solid #343A40;
+}
+.meeting-section-light{
+    background-color: #f9f9f9;
+    border:1px solid #b4b4b4;
 }
 
 .meeting-text{
@@ -54,31 +73,59 @@
     justify-content: center;
     list-style-type: none;
     padding-left:0;
+    margin-top:0;
 }
 .mail-body{
-    background-color: #181818;
-    border:1px solid #343A40;
     font-family: sans-serif;
-    font-size: 14px;
-    color:#9E9E9E;
+    font-size: 12px;
     width:90%;
-    margin:20px;
+    margin:0 20px 20px;
     padding:10px;
     border-radius:4px;
+    height:200px;
+    overflow: auto;
+    line-height: 1;
+}
+.mail-body-dark{
+    background-color: #181818;
+    border:1px solid #343A40;
+    color:#9E9E9E;
+}
+.mail-body-light{
+    background-color: #F9F9F9;
+    border:1px solid #b3b4b6;
+    color:#9E9E9E;
 }
 .mail-top{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin:0;
 }
 .mail-subject{
     font-size: 13px;
+}
+.mail-subject-dark{
     color:#f9f9f9;
+}
+.mail-subject-light{
+    color:#0f0f0f;
+    font-weight: 600;
 }
 .mail-date{
     font-family: sans-serif;
     font-size:12px;
     color:#999c9e;
+}
+.mail-content{
+    margin-top: 0;
+}
+.from-to-light{
+    color:#1F1F1F;
+}
+.mail-msg{
+    padding:0;
+    line-height: 1;
 }
 .reply-btn{
     background: linear-gradient(91.73deg, #4B63DD -2.99%, rgba(5, 36, 191, 0.99) 95.8%);

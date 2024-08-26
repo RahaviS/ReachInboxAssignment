@@ -41,6 +41,7 @@
 }
 .light-bg{
     background-color: #E9EAEC;
+    border:1px solid #c1c1c1;
 }
 .name-text{
     margin-right:10px;

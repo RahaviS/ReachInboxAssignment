@@ -8,6 +8,11 @@
     font-family:sans-serif;
     position: relative;
 }
+@media screen and (max-width:768px){
+  .page-contents-container{
+    min-height:100%;
+  }
+}
 .no-mail-container{
     display: flex;
     flex-direction: column;
@@ -41,7 +46,69 @@
     justify-content: flex-start;
     align-items: flex-start;
     width:100%;
-    padding-left:10px;
+    padding:10px;
     height: inherit;
     border:1px solid #9E9E9E;
 }
+@media screen and (max-width: 768px) {
+  .inbox-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+}
+.reply-modal{
+    position:absolute;
+    bottom: 0;
+    left: 26%;
+    right:30%;
+  }
+  .delete-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+  }
+  .dlt-modal-title{
+    color:#FFFFFF;
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .dlt-modal-text{
+    color:#E8E8E8;
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+  .btn-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top:10px;
+  }
+  .delete-btn{
+    background: linear-gradient(91.73deg, #FA5252 -2.99%, #A91919 95.8%);
+    width:100px;
+    height:30px;
+    color:white;
+    border:0;
+    border-radius: 4px;
+    outline:none;
+    cursor: pointer;
+    margin:0 5px;
+  }
+  .cancel-btn{
+    background-color: #25262B;
+    color:white;
+    width:100px;
+    height:30px;
+    border:0;
+    border-radius: 4px;
+    outline:none;
+    cursor: pointer;
+    margin:0 5px;
+  }

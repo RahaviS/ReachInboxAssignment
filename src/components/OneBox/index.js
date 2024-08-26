@@ -5,7 +5,6 @@ import { TfiMenuAlt } from "react-icons/tfi"
 import { FaInbox } from "react-icons/fa"
 import { useState,useEffect, useContext } from 'react'
 import Navbar from '../Navbar'
-import NavMenu from '../NavMenu'
 import PageContents from '../PageContents'
 import ThemeContext from "../../context/ThemeContext"
 import './index.css'
@@ -51,7 +50,7 @@ const OneBox = () => {
           </div>
           <ul className='nav-menus'>
             {navMenu.map(each=>(
-              <NavMenu key={each.id} navDetails={each} setMenu={setMenu} activeMenu={selectedMenu===each.id}/>
+               <li key={each.id} className={selectedMenu===each.id?'nav-menu-item active':'nav-menu-item'} onClick={()=>setMenu(each.id)}><button className='nav-btn' type="button">{each.icon}</button></li>
             ))
             }
          </ul>

@@ -16,7 +16,7 @@ const Login = () => {
             <button className='custom-sign-in-btn'>
               <div className='btn-contents'><FcGoogle size={20}/> <p className='btn-text'>Sign Up with Google</p></div>
             </button></Link>
-            <button type="button" className='create-btn'>Create an Account</button>
+            <button type="button" className='login-btn'>Create an Account</button>
             <p className='desc-text'>Already have an account? Sign In</p>
           </div>
         </div>

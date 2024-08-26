@@ -25,7 +25,7 @@ const Navbar =()=>{
                <FaCircle color="#FFFFFF"/>
               </button>)}
          </div>
-        <p className="name-text">Tim's Workspace</p>
+        <p className="name-text">Rahavi's Workspace</p>
         </div>
     </nav>
   )
