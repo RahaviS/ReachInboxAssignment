@@ -4,7 +4,7 @@
 The aim of this Assignment is to design Frontend part with feature-rich User Interfaces while integrating third-party APIs.
 
 # Deployed Link
-[text](https://reachinbox-assignment-two.vercel.app/)
+[ReachInbox Assignment](https://reachinbox-assignment-two.vercel.app/)
 
 ## Technologies
 
